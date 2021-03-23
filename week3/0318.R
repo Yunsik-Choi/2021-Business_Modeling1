@@ -34,6 +34,7 @@ df_exam <- data.frame(english,math,class)
 df_exam
 
 #Data Frame 안에 변수를 특정할때 $를 사용한다.
+df_exam$english
 mean(df_exam$math)
 
 #한줄로 Data Frame 만들기
@@ -47,4 +48,9 @@ install.packages("readxl")
 #패키지 load
 library(readxl)
 
-def_exam3 <- read_excel('exam_score.xlsx')
+df_exam3 <- read_excel('C:/exam_score.xlsx')
+df_exam3
+View(df_exam3)
+
+#read.csv()
+df_exam4 <- read.csv("")
