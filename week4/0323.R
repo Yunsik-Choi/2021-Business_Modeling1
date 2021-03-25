@@ -1,34 +1,34 @@
-#excelíŒŒì¼ ì½ì–´ë“¤ì´ê¸°
-#íŒ¨í‚¤ì§€ ì„¤ì¹˜
+#excelÆÄÀÏ ÀĞ¾îµéÀÌ±â
+#ÆĞÅ°Áö ¼³Ä¡
 install.packages("readxl")
-#íŒ¨í‚¤ì§€ load
+#ÆĞÅ°Áö load
 library(readxl)
 df_exam3 <- read_excel('C:/R/exam_score.xlsx')
 df_exam3
-#ë³´ê¸° í¸í•˜ê²Œ
+#º¸±â ÆíÇÏ°Ô
 View(df_exam3)
 
-#excel sheet ë²ˆí˜¸ ì§€ì •í•˜ê¸°
+#excel sheet ¹øÈ£ ÁöÁ¤ÇÏ±â
 #df_exam3 <- read_excel('C:/exam_score.xlsx', sheet = 3)
 
 df_exam4 <- read.csv('C:/exam.csv')
 df_exam4
 
 #head(), tail(), view(), dim(), str(), summary()
-#ìƒìœ„ 6ê°œ ì¶œë ¥
+#»óÀ§ 6°³ Ãâ·Â
 head(df_exam3)
-#í•˜ìœ„ 6ê°œ ì¶œë ¥
+#ÇÏÀ§ 6°³ Ãâ·Â
 tail(df_exam3)
-#ì—´ê°œìˆ˜ í–‰ê°œìˆ˜
+#¿­°³¼ö Çà°³¼ö
 dim(df_exam3)
-#ë°ì´í„° ì†ì„±,ë°ì´í„° ì¶œë ¥
+#µ¥ÀÌÅÍ ¼Ó¼º,µ¥ÀÌÅÍ Ãâ·Â
 str(df_exam3)
-#ìœ ìš©í•œ ì •ë³´ë“¤ì„ ë³´ì—¬ì¤€ë‹¤.
+#À¯¿ëÇÑ Á¤º¸µéÀ» º¸¿©ÁØ´Ù.
 summary(df_exam3)
-#1st Qu: ìµœì†Ÿê°’ê³¼ ìµœëŒ“ê°’ì˜ ë²”ìœ„ì˜ 1ì‚¬ë¶„ìœ„ ëê°’
-#3st Qu: ìµœì†Ÿê°’ê³¼ ìµœëŒ“ê°’ì˜ ë²”ìœ„ì˜ 3ì‚¬ë¶„ìœ„ ëê°’
+#1st Qu: ÃÖ¼Ú°ª°ú ÃÖ´ñ°ªÀÇ ¹üÀ§ÀÇ 1»çºĞÀ§ ³¡°ª
+#3st Qu: ÃÖ¼Ú°ª°ú ÃÖ´ñ°ªÀÇ ¹üÀ§ÀÇ 3»çºĞÀ§ ³¡°ª
 
-#ggplot2 íŒ¨í‚¤ì§€ mpgë°ì´í„°(ë¯¸êµ­ì— ì¶œì‹œëœ ìë™ì°¨ì˜ ì—°ë¹„ì •ë³´)
+#ggplot2 ÆĞÅ°Áö mpgµ¥ÀÌÅÍ(¹Ì±¹¿¡ Ãâ½ÃµÈ ÀÚµ¿Â÷ÀÇ ¿¬ºñÁ¤º¸)
 install.packages("ggplot2")
 library(ggplot2)
 
@@ -49,11 +49,11 @@ library(dplyr)
 df_var <- data.frame(var1 = c(1,2,1), var2 = c(2,3,2))
 df_var
 
-# ë³€ìˆ˜ëª… ë°”ê¾¸ê¸°
+# º¯¼ö¸í ¹Ù²Ù±â
 df_new <- rename(df_var, v2 = var2)
 df_new
 
-#sum íŒŒìƒë³€ìˆ˜ ë§Œë“¤ê¸° (ê¸°ì¡´ì— ìˆë˜ ê°’ë“¤ë¡œë¶€í„° ë‚˜ì˜¨ ë³€ìˆ˜)
+#sum ÆÄ»ıº¯¼ö ¸¸µé±â (±âÁ¸¿¡ ÀÖ´ø °ªµé·ÎºÎÅÍ ³ª¿Â º¯¼ö)
 df_exam3
 df_exam3$sum <- df_exam3$english + df_exam3$math
 df_exam3$avg <- (df_exam3$english + df_exam3$math)/2
@@ -69,13 +69,13 @@ summary(mpg_new$total)
 hist(mpg_new$total)
 View(mpg_new)
 
-#ifelseë¬¸
+#ifelse¹®
 mpg_new$eval <- ifelse(mpg_new$total>=20,"pass","fail")
 View(mpg_new)
-#ì¤‘ì²© elseë¬¸
+#ÁßÃ¸ else¹®
 mpg_new$grade <- ifelse(mpg_new$total>=30,"A",ifelse(mpg_new$total>=20,"B","C"))
 
-#ë¹ˆë„í‘œ
+#ºóµµÇ¥
 table(mpg_new$eval)
-#qplot() ë¹ˆë„ê·¸ë˜í”„(ggplot2ë¼ì´ë¸ŒëŸ¬ë¦¬)
+#qplot() ºóµµ±×·¡ÇÁ(ggplot2¶óÀÌºê·¯¸®)
 qplot(mpg_new$eval)
