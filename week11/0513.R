@@ -12,6 +12,7 @@ welfare <- rename(welfare,
                   income = p1002_8aq1,
                   code_region = h10_reg7)
 
+library(ggplot2)
 library(dplyr)
 welfare <- welfare %>%
   mutate(ageg = ifelse(age < 30, "young",
